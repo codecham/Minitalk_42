@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 04:25:05 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/08/26 02:48:25 by dcorenti         ###   ########.fr       */
+/*   Updated: 2022/08/26 02:54:42 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static void	signal_action(int sig)
 {
 	usleep(300);
-	ft_printf("ok\n\n");
 	if (sig == SIGUSR2)
 	{
 		ft_printf("The server has confirmed that\n");

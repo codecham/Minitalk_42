@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:01:17 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/04/26 17:36:45 by dcorenti         ###   ########.fr       */
+/*   Updated: 2022/08/26 02:54:13 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static int	print_string(int *j, char **str, int *realloc_size, int c_pid)
 		*str = NULL;
 		*j = -1;
 		*realloc_size = STR_MAX_LEN;
-		// kill(c_pid, SIGUSR2);
 	}
 	*j += 1;
 	return (0);
@@ -77,7 +76,6 @@ static void	decode(int sig, siginfo_t *info, void *context)
 		i = print_string(&j, &str, &realloc_size, info->si_pid);
 	}
 	usleep(100);
-	// kill(info->si_pid, SIGUSR1);
 }
 
 int	main(void)

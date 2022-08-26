@@ -6,17 +6,11 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:01:32 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/03/04 04:55:39 by dcorenti         ###   ########.fr       */
+/*   Updated: 2022/08/26 02:45:17 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/minitalk.h"
-
-static void	signal_action(int sig)
-{
-	(void)sig;
-	usleep(300);
-}
 
 static void	char_to_bin(char c, int server_pid)
 {
@@ -32,9 +26,7 @@ static void	char_to_bin(char c, int server_pid)
 		else if (c % 2 == 0)
 			kill(server_pid, SIGUSR2);
 		c /= 2;
-		signal(SIGUSR1, signal_action);
-		signal(SIGUSR2, signal_action);
-		pause();
+		usleep(300);
 		i++;
 	}
 }
@@ -66,7 +58,6 @@ int	main(int argc, char **argv)
 			ft_printf("ERROR: INVALID PID\n");
 			return (EXIT_FAILURE);
 		}
-		ft_printf("Waiting response from the server...\n\n");
 		send(argv[2], server_pid);
 		return (EXIT_SUCCESS);
 	}
